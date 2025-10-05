@@ -1,3 +1,6 @@
+// Relación de COMPOSICIÓN: el voto depende totalmente del votante y del candidato.
+// Si la elección se elimina, estos votos dejan de existir.
+
 class Voto {
     private Ciudadano votante;
     private Candidato candidato;

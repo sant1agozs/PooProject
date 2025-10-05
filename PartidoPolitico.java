@@ -1,3 +1,6 @@
+// Relación de AGREGACIÓN: la clase es usada por Candidato,
+// pero ambos pueden existir de forma independiente.
+
 class PartidoPolitico {
     private String nombre;
     private String siglas;

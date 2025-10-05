@@ -18,13 +18,16 @@ public class Main {
         Ciudadano v2 = new Ciudadano("Luis González", "1-5678-1234");
         Ciudadano v3 = new Ciudadano("María Torres", "1-9876-5432");
         Ciudadano v4 = new Ciudadano("Pedro Salas", "1-1111-2222");
+        Ciudadano v5 = new Ciudadano("Rodrigo Figueres", "9-2222-3333");
 
         v1.votar(eleccion, candidate2);
         v2.votar(eleccion, candidate3);
         v3.votar(eleccion, candidate3);
         v4.votar(eleccion, candidate2);
+        v5.votar(eleccion, candidate3); // Si dejamos de tomar en cuenta el voto de v5, deberia haber un empate.
 
         eleccion.mostrarResultados();
+
         eleccion.mostrarGanador();
     }
 }

@@ -1,3 +1,6 @@
+// Relación de AGREGACIÓN: el candidato pertenece a un partido,
+// pero puede existir aunque el partido no esté registrado.
+
 class Candidato {
     private String nombre;
     private PartidoPolitico partido;

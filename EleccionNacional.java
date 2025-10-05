@@ -46,15 +46,15 @@ class EleccionNacional {
         // Mostrar resultados
         if (ganadores.size() == 1) {
             Candidato g = ganadores.get(0);
-            System.out.println("\n🇨🇷 Ganador de las " + nombre + ": " +
+            System.out.println("\n Ganador de las " + nombre + ": " +
                     g.getNombre() + " del partido " + g.getPartido().getNombre() +
                     " con " + g.getVotos() + " votos.");
         } else {
-            System.out.println("\n⚖️ Empate en las " + nombre + " entre:");
+            System.out.println("\n️ Empate en las " + nombre + " entre:");
             for (Candidato g : ganadores) {
                 System.out.println("- " + g.getNombre() + " (" + g.getPartido().getSiglas() + ") con " + g.getVotos() + " votos.");
             }
-            System.out.println("\n🗳️ Se requiere una segunda ronda electoral.");
+            System.out.println("\n Se requiere una segunda ronda electoral.");
         }
     }
 }

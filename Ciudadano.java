@@ -1,3 +1,6 @@
+// Relación de DEPENDENCIA: el ciudadano necesita una elección para votar,
+// pero no pertenece ni se almacena dentro de ella.
+
 class Ciudadano {
     private String nombre;
     private String cedula;
@@ -11,7 +14,6 @@ class Ciudadano {
 
     public String getNombre() { return nombre; }
 
-    // Dependencia: un ciudadano necesita una Elección para votar
     public void votar(EleccionNacional eleccion, Candidato candidato) {
         if (!yaVoto) {
             eleccion.registrarVoto(new Voto(this, candidato));
