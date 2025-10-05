@@ -1,20 +1,43 @@
 // Relación de AGREGACIÓN: la clase es usada por Candidato,
 // pero ambos pueden existir de forma independiente.
 
-class PartidoPolitico {
+public class PartidoPolitico {
     private String nombre;
     private String siglas;
 
-    public PartidoPolitico(String nombre, String siglas) {
-        this.nombre = nombre;
-        this.siglas = siglas;
+    // Constructor con todos los datos
+    public PartidoPolitico(String nombreObjeto, String siglasObjeto) {
+        nombre = nombreObjeto;
+        siglas = siglasObjeto;
     }
 
-    public String getNombre() { return nombre; }
-    public String getSiglas() { return siglas; }
+    // Getters
+    public String getNombre() {
+        return nombre;
+    }
 
+    public String getSiglas() {
+        return siglas;
+    }
+
+    // Setters
+    public void setNombre(String nombreNuevo) {
+        nombre = nombreNuevo;
+    }
+
+    public void setSiglas(String siglasNuevas) {
+        siglas = siglasNuevas;
+    }
+
+    // Muestra los datos del partido en una sola línea
     @Override
     public String toString() {
-        return nombre + " (" + siglas + ")";
+        return "Partido: " + nombre + " (" + siglas + ")";
+    }
+
+    // Compara dos partidos políticos para ver si son iguales
+    public boolean equals(PartidoPolitico partidoComparar) {
+        return nombre.equals(partidoComparar.nombre) &&
+                siglas.equals(partidoComparar.siglas);
     }
 }

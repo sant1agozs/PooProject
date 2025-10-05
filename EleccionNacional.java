@@ -1,60 +1,53 @@
 import java.util.ArrayList;
 
-class EleccionNacional {
+public class EleccionNacional {
     private String nombre;
-    private ArrayList<Candidato> candidatos; // agregación
-    private ArrayList<Voto> votos;           // composición
+    private ArrayList<Candidato> candidatos;
+    private ArrayList<Voto> votos;
 
-    public EleccionNacional(String nombre) {
-        this.nombre = nombre;
-        this.candidatos = new ArrayList<>();
-        this.votos = new ArrayList<>();
+    // Constructor con todos los datos
+    public EleccionNacional(String nombreObjeto) {
+        nombre = nombreObjeto;
+        candidatos = new ArrayList<>();
+        votos = new ArrayList<>();
     }
 
-    public void agregarCandidato(Candidato c) {
-        candidatos.add(c);
+    // Getters
+    public String getNombre() {
+        return nombre;
     }
 
-    public void registrarVoto(Voto voto) {
-        votos.add(voto);
-        voto.getCandidato().agregarVoto();
+    public ArrayList<Candidato> getCandidatos() {
+        return candidatos;
     }
 
-    public void mostrarResultados() {
-        System.out.println("\nResultados de la " + nombre + ":");
-        for (Candidato c : candidatos) {
-            System.out.println(c);
-        }
+    public ArrayList<Voto> getVotos() {
+        return votos;
     }
 
-    public void mostrarGanador() {
-        int maxVotos = 0;
-        for (Candidato c : candidatos) {
-            if (c.getVotos() > maxVotos) {
-                maxVotos = c.getVotos();
-            }
-        }
+    // Setters
+    public void setNombre(String nombreNuevo) {
+        nombre = nombreNuevo;
+    }
 
-        // Buscar todos los candidatos que tienen el máximo de votos
-        ArrayList<Candidato> ganadores = new ArrayList<>();
-        for (Candidato c : candidatos) {
-            if (c.getVotos() == maxVotos) {
-                ganadores.add(c);
-            }
-        }
+    public void setCandidatos(ArrayList<Candidato> candidatosNuevos) {
+        candidatos = candidatosNuevos;
+    }
 
-        // Mostrar resultados
-        if (ganadores.size() == 1) {
-            Candidato g = ganadores.get(0);
-            System.out.println("\n Ganador de las " + nombre + ": " +
-                    g.getNombre() + " del partido " + g.getPartido().getNombre() +
-                    " con " + g.getVotos() + " votos.");
-        } else {
-            System.out.println("\n️ Empate en las " + nombre + " entre:");
-            for (Candidato g : ganadores) {
-                System.out.println("- " + g.getNombre() + " (" + g.getPartido().getSiglas() + ") con " + g.getVotos() + " votos.");
-            }
-            System.out.println("\n Se requiere una segunda ronda electoral.");
-        }
+    public void setVotos(ArrayList<Voto> votosNuevos) {
+        votos = votosNuevos;
+    }
+
+    // Muestra los datos de la elección
+    @Override
+    public String toString() {
+        return "Elección: " + nombre +
+                ", Candidatos: " + candidatos.size() +
+                ", Votos: " + votos.size();
+    }
+
+    // Compara dos elecciones para ver si son iguales
+    public boolean equals(EleccionNacional eleccionComparar) {
+        return nombre.equals(eleccionComparar.nombre);
     }
 }
